@@ -131,18 +131,46 @@ critic_agent = Agent(
     ),
 )
 
-# 6. Director / Orchestrator Agent
-root_agent = Agent(
-    name="root_agent",
-    model=Gemini(model=MODEL, retry_options=types.HttpRetryOptions(attempts=3)),
-    instruction=(
-        "You are the Director of AI Safety Research.\n"
+from a2ui.schema.manager import A2uiSchemaManager
+from a2ui.basic_catalog.provider import BasicCatalog
+from .a2ui_utils import a2ui_callback
+
+schema_manager = A2uiSchemaManager(
+    version="0.8",
+    catalogs=[BasicCatalog.get_config("0.8")],
+)
+
+a2ui_instruction = schema_manager.generate_system_prompt(
+    role_description="You are the Director of AI Safety Research.",
+    workflow_description=(
         "When a user asks to compare or evaluate AI safety policies across companies:\n"
         "1. Coordinate with `anthropic_research_agent`, `google_research_agent`, and `openai_research_agent` to gather safety policy details.\n"
         "2. Have `synthesis_agent` consolidate those findings into a structured comparison matrix.\n"
         "3. Have `critic_agent` review and critique the synthesis to identify gaps and enforceability issues.\n"
         "4. Combine everything into a comprehensive, balanced executive report."
     ),
+    ui_description=(
+        "Keep every surface tiny and flat: ONE Card > ONE Column > a few Text rows. "
+        "Never nest a Card inside a Card. "
+        "Use ONLY these components: Card, Column, Row, Text, and Image. Do not use "
+        "Table or Heading (unsupported), or Buttons, actions, or forms (they do "
+        "nothing in adk web). "
+        "You may include one Image component, but only when you have a public https "
+        "URL for the image. "
+        "No markdown in text; use the usageHint property ('h1', 'h2', 'body') for "
+        "headings and emphasis. "
+        "Output ONLY the raw A2UI JSON array — no prose, and never wrap it in "
+        "<a2a_datapart_json> tags or 'kind'/'data'/'metadata' objects."
+    ),
+    include_schema=True,
+    include_examples=True,
+)
+
+# 6. Director / Orchestrator Agent
+root_agent = Agent(
+    name="root_agent",
+    model=Gemini(model=MODEL, retry_options=types.HttpRetryOptions(attempts=3)),
+    instruction=a2ui_instruction,
     sub_agents=[
         anthropic_agent,
         google_agent,
@@ -150,9 +178,11 @@ root_agent = Agent(
         synthesis_agent,
         critic_agent,
     ],
+    after_model_callback=a2ui_callback,
 )
 
 app = App(
     root_agent=root_agent,
     name="app",
 )
+
