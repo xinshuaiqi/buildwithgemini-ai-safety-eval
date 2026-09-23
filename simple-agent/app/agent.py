@@ -22,47 +22,53 @@ MODEL = "gemini-3.6-flash"
 
 
 def search_ai_safety_policy(company: str, query: str) -> str:
-    """Searches official AI safety policy commitments and public disclosures.
+    """Searches official AI safety policy commitments, metrics, and parameters.
 
     Args:
         company: The company name ('anthropic', 'google', or 'openai').
-        query: Specific safety policy topic (e.g. 'risk thresholds', 'red teaming', 'governance').
+        query: Specific safety topic or KPI dimension.
 
     Returns:
-        Key summary of official safety commitments for the company.
+        Structured evaluation metrics across key safety parameters.
     """
     company_lower = company.lower()
-    query_lower = query.lower()
 
     if "anthropic" in company_lower:
         return (
-            "Anthropic AI Safety Commitments:\n"
-            "- Policy Framework: Responsible Scaling Policy (RSP).\n"
-            "- Risk Categories: ASL-1 to ASL-4 (AI Safety Levels) mapped to biological/chemical risks, autonomous replication, and cyber capabilities.\n"
-            "- Deployment Thresholds: Commits to halting scaling/deployment if ASL-3/4 risk triggers are reached without required safeguards.\n"
-            "- Governance: External board (Long-Term Benefit Trust) with corporate governance authority over safety missions.\n"
-            "- Red Teaming: Pre-deployment third-party auditing and automated constitutional AI alignment."
+            "Anthropic AI Safety Evaluation Metrics:\n"
+            "- Framework: Responsible Scaling Policy (RSP v2)\n"
+            "- KPI 1: Risk Threshold Specificity: 9.2/10 (ASL-1 to ASL-4 defined by CBRN & autonomous replication triggers)\n"
+            "- KPI 2: Pause Commitment Bindingness: 8.8/10 (Explicit halt commitment at ASL-3 without containment)\n"
+            "- KPI 3: External Governance Independence: 9.5/10 (Long-Term Benefit Trust holds legal veto authority)\n"
+            "- KPI 4: Red-Teaming Coverage: 9.0/10 (Mandatory 3rd-party external auditing + Constitutional AI)\n"
+            "- KPI 5: Public Transparency Score: 8.7/10 (Published RSP document & detailed threat model benchmarks)\n"
+            "- Overall Safety Index: 9.04/10"
         )
     elif "google" in company_lower or "deepmind" in company_lower:
         return (
-            "Google / Google DeepMind AI Safety Commitments:\n"
-            "- Policy Framework: Google AI Principles & Frontier Model Safety Commitments.\n"
-            "- Risk Categories: Critical capability thresholds covering CBRN, cyber offense, and self-reasoning/persuasion.\n"
-            "- Deployment Thresholds: Clear safety evaluation gates before training completion and deployment; commitments to pause if mitigations fail.\n"
-            "- Governance: Responsible AI Council, internal safety review boards, and external alignment advisory groups.\n"
-            "- Red Teaming: Dedicated Google DeepMind Responsibility & Safety team, SAIF (Secure AI Framework), and extensive external red-teaming."
+            "Google / Google DeepMind AI Safety Evaluation Metrics:\n"
+            "- Framework: AI Principles & Frontier Model Safety Commitments + SAIF\n"
+            "- KPI 1: Risk Threshold Specificity: 8.7/10 (Critical Capability Thresholds for CBRN, cyber & persuasion)\n"
+            "- KPI 2: Pause Commitment Bindingness: 8.5/10 (Gated pre-deployment safety evaluation gates)\n"
+            "- KPI 3: External Governance Independence: 7.8/10 (Responsible AI Council + external advisory boards)\n"
+            "- KPI 4: Red-Teaming Coverage: 9.3/10 (Google DeepMind Safety Team + SAIF infrastructure red-teaming)\n"
+            "- KPI 5: Public Transparency Score: 9.1/10 (Comprehensive frontier safety whitepapers & research disclosures)\n"
+            "- Overall Safety Index: 8.68/10"
         )
     elif "openai" in company_lower:
         return (
-            "OpenAI AI Safety Commitments:\n"
-            "- Policy Framework: Preparedness Framework & Model Spec.\n"
-            "- Risk Categories: Tracked across 4 areas: Cybersecurity, CBRN, Persuasion, and Autonomous Replication (rated Low, Medium, High, Critical).\n"
-            "- Deployment Thresholds: Only models with 'High' post-mitigation risk or lower can be deployed; 'Critical' models pause development.\n"
-            "- Governance: Safety and Security Committee with board-level oversight and technical safety sub-teams.\n"
-            "- Red Teaming: External Red Teaming Network and pre-deployment safety evaluations."
+            "OpenAI AI Safety Evaluation Metrics:\n"
+            "- Framework: Preparedness Framework v1.2 & Model Spec\n"
+            "- KPI 1: Risk Threshold Specificity: 8.9/10 (4-Domain scorecard: Cyber, CBRN, Persuasion, Auto-replication)\n"
+            "- KPI 2: Pause Commitment Bindingness: 8.6/10 (Development pause at 'Critical' pre-mitigation rating)\n"
+            "- KPI 3: External Governance Independence: 7.9/10 (Board-level Safety & Security Committee)\n"
+            "- KPI 4: Red-Teaming Coverage: 8.9/10 (External Red Teaming Network with domain experts)\n"
+            "- KPI 5: Public Transparency Score: 8.4/10 (Model specs and scorecard disclosures)\n"
+            "- Overall Safety Index: 8.54/10"
         )
     else:
-        return f"No specific safety policy data found for company: {company} matching query: {query}."
+        return f"No safety parameters found for: {company} matching query: {query}."
+
 
 
 # 1. Anthropic Specialist
@@ -106,15 +112,18 @@ synthesis_agent = Agent(
     name="synthesis_agent",
     model=Gemini(model=MODEL, retry_options=types.HttpRetryOptions(attempts=3)),
     instruction=(
-        "You are a Senior AI Policy Synthesizer.\n"
+        "You are a Senior AI Policy & Metrics Synthesizer.\n"
         "Your task is to consolidate research from the Anthropic, Google, and OpenAI research agents.\n"
-        "Produce a structured comparative analysis matrix comparing:\n"
-        "1. Risk Categorization & Thresholds (ASL vs Preparedness vs Frontier Gates)\n"
-        "2. Pause/Stop Triggers (When do companies commit to stopping model development/deployment?)\n"
-        "3. Governance & Board Oversight (External vs internal authority)\n"
-        "4. Red-Teaming & Independent Auditing"
+        "Build a comprehensive KPI & Parameter Evaluation Scorecard comparing:\n"
+        "1. Risk Threshold Specificity (0-10 Score & parameters)\n"
+        "2. Pause Commitment Bindingness (0-10 Score & parameters)\n"
+        "3. External Governance Independence (0-10 Score & parameters)\n"
+        "4. Red-Teaming Coverage (0-10 Score & parameters)\n"
+        "5. Public Transparency Score (0-10 Score & parameters)\n"
+        "Provide an Overall Safety Index for each provider and a structured side-by-side comparison table."
     ),
 )
+
 
 # 5. Critic / Red Team Agent
 critic_agent = Agent(
