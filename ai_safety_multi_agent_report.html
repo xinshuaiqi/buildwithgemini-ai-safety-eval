@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Safety Policy Multi-Agent Evaluation Report</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #202124; background: #f8f9fa; margin: 0; padding: 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { color: #1a73e8; font-size: 2rem; border-bottom: 2px solid #e8eaed; padding-bottom: 0.8rem; margin-top: 0; }
+        .badge { display: inline-block; padding: 6px 14px; border-radius: 16px; font-weight: 600; font-size: 0.85rem; background: #e8f0fe; color: #1a73e8; margin-bottom: 1rem; }
+        .summary-box { background: #eef3fd; border: 1px solid #c7d8fb; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+        .event-card { background: #ffffff; border: 1px solid #e0e0e0; border-left: 5px solid #1a73e8; border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .event-card.author-anthropic_research_agent { border-left-color: #d97706; }
+        .event-card.author-google_research_agent { border-left-color: #34a853; }
+        .event-card.author-openai_research_agent { border-left-color: #10a37f; }
+        .event-card.author-synthesis_agent { border-left-color: #8e24aa; }
+        .event-card.author-critic_agent { border-left-color: #ea4335; }
+        .author-name { font-weight: bold; font-size: 1.1rem; color: #3c4043; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.88rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">ADK Multi-Agent Report</span>
+        <h1>🛡️ AI Safety Policy Multi-Agent Comparison Report</h1>
+        <div class="summary-box">
+            <h3>Executive Summary</h3>
+            <p>This document presents the complete live trace of the multi-agent system analyzing, consolidating, and critiquing AI safety policies from <strong>Anthropic</strong>, <strong>Google</strong>, and <strong>OpenAI</strong>.</p>
+        </div>
+        <h2>🔄 Execution Trace</h2>
+
+        <div class="event-card author-root_agent">
+            <div class="author-name">🤖 Agent: root_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_679332&quot;,
+        &quot;args&quot;: {
+          &quot;agent_name&quot;: &quot;anthropic_research_agent&quot;
+        },
+        &quot;name&quot;: &quot;transfer_to_agent&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a18Mq1MreiHPVNKiUDcqWt21n6-LZdE8XMp79nTl86Jet9ezm_TJJYhXruTI--vV1VBxbXrQn0g5QoxpUTvSrxNhhrYreLBaRiTFQpU8EI4E6m5OIVo5nGY3c7VXMJzyQtOiukbq_tm_VDihXF6CHawLr2hEsm32qy5yq07Mo7FjKcp0vKFTRsYIQ-BQatpk8LjNe_z5nQ4O9wlLlA6ljeUhujiHFFmbbWlMYG6es1h8MULOeoHwHJt03s7oXxyi8eltTDVm6gTl_gVYDFSbxAo-9rs8Gpit6ZfHTDSg-jETNP-o623dPRieEHHEyXikm47zZijFntr5numc-by7jDVt9Yo9ud9KFWpi9Q0XHX8eoqRMRo_MUZaTezm8Wtr4jjLYu63sbwwvJBhsbwWW8eehlDNpY13pXoYuFHtJvS9F5Y2x_7J0-WHIFxq0yk7t0yynoaPrBbVaJCP3hfAdRvkflWPE6fP6na-hB3dOYfkz7fjiQfO8nI7qRTVE7RxFH-aUscf05KMKix28Kw1E1iP5cJsjSjkwXmbwtLf3gcg7Hc6K2C5WLn5POh9oU85Chr6nxHxvu1LBx2SSHJubymZ3wKsoVjiktdNAFIV7knywbCaOMbQ6HWNjoo0QV2zcDSYFLyzkOcVy_aM8DtLgzyW6xIx98DUTRhDZBENB4Fpson2UECFgDtnGfJ9LWHOeROH0CbWOAdnBWV5L9drNQresbDE9rnsPbtj5QHd9m3LxUOY5iMJ4pB8YXdDE5k2SMvDQlTpIa1OzoKsCtrEiwJ9714wBYNVY8h6CUpxj3LOe-EpojHy7-eCiBqS6tWPvzxRuSTlF1-bu92VQr_rygzKCwinZ15jJ3PjnSyy_281dkUudFVAH43ZXLFQKhVj-AhYwc8EgSo8nBNDPGB2QvCINzzlLgyLGEBQNGfS-XUuTxjqqX5hgGLZCvCpMQ1cTqTIlkTjFN8Syd3zJxZNZiecXeWgQzsb2HyUWQz5jJurX4wNKS_r9ezGA0b9rLJcoBOlHq2XRiIkfeTGBwtkSotTnzgowzUetrK0vUo2PkD_xogq_K7XiarVvwOqtqvpWG5J-GsM6pPsk3Z3zViNE9WjIovtcXaNeIkEdhDOgJ0EXyi5T02LyswydRFP5EsBJl1BODN0A&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-root_agent">
+            <div class="author-name">🤖 Agent: root_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_679332&quot;,
+        &quot;name&quot;: &quot;transfer_to_agent&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: null
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-anthropic_research_agent">
+            <div class="author-name">🤖 Agent: anthropic_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_847958&quot;,
+        &quot;args&quot;: {
+          &quot;company&quot;: &quot;anthropic&quot;,
+          &quot;query&quot;: &quot;Responsible Scaling Policy ASL levels governance commitments&quot;
+        },
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a1_HCnRuztwHgNiLXcxVlLiw8yDH4NglKH424xFJEHJ5OgaOh076uw1i8kavKZn0uIehbdHgfsf2szPCMDTTSim69Q1aJQx9OpIN7IiMXRwnV70xbFBI_WXjWFBVGNln3km04JvfDwzwPwX3yC0QE5PpDxYO9y7b9fHPrWQri6RhxNrxEOwi61Kg5EMvaJvpi-89UNz2rUbgP_DE3QI68oD6XHYfslCaQKZqeVjSoxW86B2m_Y3bH5U3QCg_36A82iH8ePc9Fqc3X66yOYFFtqymMKYCHTda1U7CruBZHYF3V1Oz2xSm-XCGOImEI5LZxa4UY0V6eLdJteEY5RBLBzpq69tSIHW8M9EtGgjAWseSwiGT-idEFgziEFSUQFQFWVyhVB6AMNPgn9pS1bthAZVpKXuCFviH2R0WqbeMJZ3wXiJZyo6c6BZzce2eQeGXriBoLQi02UAt6arp2FW58TikvmnaGvkWCT-RfLlXLy78JdjWBxG4s3vSFflENpirQMFdtcR3Y2CwLXyAtxjvjXAUoB_pfgjYo4-TmuR9Nkbne8ew9moHaDzE_De8kA_J2Ef-rp9w5TuE-idvMz_msBOrGy5wfFcUr1I99_3w_dGS1w-RFmNcgQaWsCIF2l8SYL07TS6uxYWCdUWvgG_uQXMlVbcXxAiHeFVtPSKSYIPQYj-a_Iv_SUUpRRBpFVoQVg1xbJU5GAU1hymc9smmGcLrwB9eW1MfQBNeuzOZFhlrhWXelg08klBeO5sdPAuDLZGS8XEy1axdmW3dWjAQ7c-djl7glV2qMbA1BdCwiUps7mg3z3PSmfSvtezPsYdDWoyBFmuBbjvET6CJwH-NDVZ-o_X3vKs9rWSJjCIk0mQFGKTF3TGi_erAf9c6M0-bAbDYNtq7fyBROrgnh5Gd3EgtZ1_gED4Gm0zZoNAfEpQfCMqGMrbvt6bwNBRPRETWyoGwc20sLwXpjMHy0xAOzWU2SVaMBiBpZbusIn_ejTvu_lK8lj1N2qDX0LGLEsFFaTAskZdJn-6gkNDCSdXgUnmqXcSWSlNipHmvc9AGNp_qLfmJEq8KqGQxnwbNe1GsXVV4YMHyD1Rs87qNSx3K5kUQwQfdQM46vxrspoT_EBHU2cYxuES_pG-f4bGm9g-IK0wRUU57BBxUnhUsVh6Qg8wQW051klS4g44JNxxnzxOVCM4e5ZdnS23c_swxQyuBBuv9NgXI0lgnyzdk_hk9XWxjMQJCFMTzU6f_oHyqAP0CfZbw9_eH1izn0GCbKs2sCSfMYNV8wHdGml-NF_iqC2fjqCeXrfKT5eml3jfkHADIkTCLCGMjorCPYXqNag3qb3Ipnrd5IrQYCs3rgCtXdH3pbq_yXTY2kT3Oq4awy1qf3N2VMOzFQYQ1Pv_1K3GcXCovCz2vvpRXDTBcASIc3DjZbV6mdOumLHrnUo5GaPnrKT7NY5Jpnp-6nJvlFTPHv3jeLUSOC6DjTjeFJOKhzyXslGF7PebTHbAJo0bdPHbIEYgZPp2G6urrjXIVHGV7izai3qY2Q9X482ZViWKaU1G6087192LpVSM2Xv21IOCeNiywSUsYCOOIfxnXiY-FWilPkGnZiY54We4ZbEkt4HbK8LoW8eaR23kNJtFl0DiYIWoIz7GcJrJlUXiMBVxHwFLtNshBmxB2LGqR-D697U6NzHkfs5mBwYlj6S4RdyWEItX6bdjFk0t5mpfasI7zNefwyZ60HZuUW9_E5mRllOVXZYMzdeHJYb4C_aP80Hevl_G0HoewbxESggXipv-eoL1qdaqKiI_USPdz-n8oy66ixM2GIw9r&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-anthropic_research_agent">
+            <div class="author-name">🤖 Agent: anthropic_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_847958&quot;,
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: &quot;Anthropic AI Safety Commitments:\n- Policy Framework: Responsible Scaling Policy (RSP).\n- Risk Categories: ASL-1 to ASL-4 (AI Safety Levels) mapped to biological/chemical risks, autonomous replication, and cyber capabilities.\n- Deployment Thresholds: Commits to halting scaling/deployment if ASL-3/4 risk triggers are reached without required safeguards.\n- Governance: External board (Long-Term Benefit Trust) with corporate governance authority over safety missions.\n- Red Teaming: Pre-deployment third-party auditing and automated constitutional AI alignment.&quot;
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-anthropic_research_agent">
+            <div class="author-name">🤖 Agent: anthropic_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_632763&quot;,
+        &quot;args&quot;: {
+          &quot;company&quot;: &quot;google&quot;,
+          &quot;query&quot;: &quot;Frontier AI Safety Commitments governance risk thresholds red teaming&quot;
+        },
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a1-DIlgi_bDWdfzqUwB_z2Ges69aKYn-mSFt6ZQKxEVVbNUzelfxFsUxRV1PjpYUVpCyecex6r2F80anpq-HjwW8upsUrGE97MW7XSiDXJTBBo4ZMH9QVxk3UfDYmJ2nBh_u0kx2nZSm8uwuPXVh-W1ch_6pjL4tHPmju4ErFdKU2vae7YNAg1cn1QyqDBn1mt98XvgbA5dn7ldUDhnLj2cngrnkeU0bBrieloIN0WWMoo3eC3kU_uLffMnpHDWI2nt1mXDE9XkiAQaVEwlFeu9te-uPzSR2qXsF3393fpDMhX9Ud4_8D275Q8SWzypuSWPrvLU5yDFvKFJJzZcKYspO42f0yE-o5OfvFfsT6VWUXnaJoGqcNd5v-FrD9u8DhZkhI6-zY8iUr6Jlgq60nQpMNBCDWf8AmTVLT_HXVcB6Qpjp91k3YyaafOrlQipeJAiZACPyxBpOXMXdjbTUxbUgvnwj0J7-451rJV36ZSPfkpdX&quot;
+    },
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_632764&quot;,
+        &quot;args&quot;: {
+          &quot;query&quot;: &quot;Preparedness Framework risk levels governance red teaming&quot;,
+          &quot;company&quot;: &quot;openai&quot;
+        },
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-anthropic_research_agent">
+            <div class="author-name">🤖 Agent: anthropic_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_632763&quot;,
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: &quot;Google / Google DeepMind AI Safety Commitments:\n- Policy Framework: Google AI Principles &amp; Frontier Model Safety Commitments.\n- Risk Categories: Critical capability thresholds covering CBRN, cyber offense, and self-reasoning/persuasion.\n- Deployment Thresholds: Clear safety evaluation gates before training completion and deployment; commitments to pause if mitigations fail.\n- Governance: Responsible AI Council, internal safety review boards, and external alignment advisory groups.\n- Red Teaming: Dedicated Google DeepMind Responsibility &amp; Safety team, SAIF (Secure AI Framework), and extensive external red-teaming.&quot;
+        }
+      }
+    },
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_632764&quot;,
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: &quot;OpenAI AI Safety Commitments:\n- Policy Framework: Preparedness Framework &amp; Model Spec.\n- Risk Categories: Tracked across 4 areas: Cybersecurity, CBRN, Persuasion, and Autonomous Replication (rated Low, Medium, High, Critical).\n- Deployment Thresholds: Only models with &#x27;High&#x27; post-mitigation risk or lower can be deployed; &#x27;Critical&#x27; models pause development.\n- Governance: Safety and Security Committee with board-level oversight and technical safety sub-teams.\n- Red Teaming: External Red Teaming Network and pre-deployment safety evaluations.&quot;
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-anthropic_research_agent">
+            <div class="author-name">🤖 Agent: anthropic_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_580149&quot;,
+        &quot;args&quot;: {
+          &quot;agent_name&quot;: &quot;google_research_agent&quot;
+        },
+        &quot;name&quot;: &quot;transfer_to_agent&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a1-wuQ67axCWS6H6GRvOVrcvKizb4BUl_Jx2HYR90GVODuAv0N1QI3AeLn-CmAdzANGwF4wvKQ4P_DjP01VVrO6_eAkgqB5TgnIwWEvW22SqHyAAzLNytJ2-ko2hU3GENDxbyjvmLuiLoVQoBHqym-QgRpzRWV_yi0Wk-SNfnO0sjQUzzAgLwwCfjUNhDf7i2DhUXIDViZCGjuE08skT1bQRW8TSx2Jpbwko1i5CITrko9xFkrQeduCWaj8ZUhZUuzZY6rhzbO6lmQXIkdAy31MLfLdEL9a-sK-4n6PbnB721XYoNTpHeYRnpelqie9D6g5JCgbQYwh85qfSVI8ytF6iL8THaPZS28y03vxyl9CsbjYljD8QjMCyoho_feY5BHldMRpmGwECS-7tbtiF4CIztQWxMJ-3qGx6fUaA5saL07LKPVGnvDIT1DtQwYkzRVTTyHjVxqjofthxjpYSIJNDDlrUQOhnCdXjLAbJXakush0m7oSt6RDqLTJNN-O7L-vT0zXGUdf7TtNWRx9ERFLfFktx_iZCWdZUMuqY5dGh5E1cXcYlIaKNP0naYAVVPIfWpwLKmiIZyOMLwd9j2kmh6ohbF166REtlLqKkbsx89GGfrhcVfQPXK1H65xnE-wtjd_GmzSTBZ_U9nGvL3z-Yg7pAgWRXDYBKN36r3TBuzi93D35aNYx8m7i2qODApTbP_K5P0wVV47JFaxy6OW0gUkdnTTgcQq5FOVFqtXrhEuhu2ZJMtxI372JwuXhkHkJHC2FuxpslDxXl09ii8Im0AIu3-ngG2xpOuFCMaEJhUIUY0IXaMjo7VzGVw7qgqcz4cDzJrpJi7Xf7-kd6EggjbGvDf4jDPozQ2y79UdRxjZ_dnuKstqxkOraE20BbUZGoq_isEsBZjIj6gqIOTnwYEGZNK5J00Me6CXjvOX3_dIMNdqXf-kzv-SD2IgnZh--hPXRqBJsU4-5P_NBS6IrOaLOugsNbcCVM9BliLYTaJvWL95I64dB5p6LXLOjQt-4FkJxDgpBvn7pzgsv2Fp8bmaE9bgUUrdL8A_xsyF0H04zgB08w8v4p9dGQPt7RiA_jp6dYmtmgkJo6QnboHdxiNeFrLqyGOajt4Cu0ciaJAm9BJOss1OhHE_MhaaArO8ntzYskOcrtLaFi9gCpIzC7hsN1c4XPBB4Rs0j1hd2worF1k2f0An89S_zf9Ri1yBgb7f0aJun9DEHlIxlwmmsbOT3a9luo5POocIl0i-pRNX-tnChkjLBPhdxsg_CD_lEOpmKnQ6_QVjbIRQrp-GfSB-XinIlPakrEuyLEm9A3GO2CyRj-Rjq5ckcoMjyFkDBSPUVXU_2btme32R7fULSxT5PjFLt201lvhxuhZe1r84CV5GDvE8dpVHg3wdw_zPAqdMrB8yBnl8qQtVaodxmuZuMnqWdIF6_6I01d5lCRvDrCkNsZMu6Kg-dZ_8HjvEZE0JORrbliQzctAuoicWhlZbjQirHQXA7_7j8gipyXBWRMv5Vx-fRiZOSXK2R3gvjnYh9H7N8lUzD0wEhkJNzp0GQHsV97z8N1Nf0swBJQS9gbWv2TxaPkZBEJT8U5tVrN0dzyiLz21Bxd8x_08S0I4DQea0iLxISVMkcnpJJQUYMtuHCw-I5GStJXBNQhGpJw66ye8wtqoaiH0gpWNz3FuVX9Strnl7ogMyPs-A5v4Dbud7Yw2jLDI4G7tu2xIIhPUeMzzqoiOg3t-AxWWEYwnY9ArrMLKm9nv-k9w34h9hQXaSqD0mevjMZeFZs12qIkKczo25jqy4DCVak7Kr6ED6-1uT05Wf_Z5Te-xA5ZoivCUr5ZBvoU69b9NTcleGSmPMEcs8_Mz8EwBews3RUoXSf8EyG_Ebxsq0YD6TzdHn-_YweV9ZS7yGAiiFeXo5DhGsnK7O-B-ZE1CfnosBn2IL3JuQIUTPI4KPCwBopfxevSz7_Ri3N1KKnajwqQrwSGKmBqheOQYSupo1AdRa2Ai34PDTR0UHIdCEGJrRNwbLc_6iXT9TsvkV6MDrY9Qd3VdVw4kd3c9wXqhT4bpUra0epr3782lZBcYcl5b6oDwxsbnVOWerdvQLi_hO_BZRqNt6Xj0nM71klRsQWWAavsE9amJ4tFAbY4WGaHIwDLwjq8MHFs5kijs4JNDilKdpYa1dbjxF3oJkoKfw1ZAGwdfeny6BADTIUd-l37DBkY6n80WfOBp5VsQDH7457TxdEY0BG4orsCPticlKqGHHSditwvaaynaXGkqVemk-dJwSPG_9G7Lp1GrWkJg22UUo6cNHoZkjQiLL5HjbGk3F0b08uw73xygGptMvcdN4l-lm09ff_lET3026DCu0UOO2ilrNZJ6xqkCgNklxHNdzFbRUbr0oOEFQI0ao1q5ZirjEnDwFn43KDDzOWoYd9UsQQWLZK0TtNXjXy8ynTOHyRQBwE043OPqp6ZZxVTskaW8IVbxFyz__wk1rYddgjt7N5NILN6y7atyoaYVTAe7Hdu4j-JQTAjX5nYa0qt3tinZq2H5lu2MG2f_FskBAnicmQVOQ2cUDrlkZjBqiPssug_Bq0ds5vutDsKj2XLfNndS5fgaeInMFZsbc0TkoWGOvAy7cqJ05-TRLWq1yAGsQ6JeoxicodeafFPHe8R3mK26R3VXjPMi1-92Jxypzs13QZ4gfzCrtYRuga7TXjbw1-dRr-jFhh2WFtoaLc_7MIS2XvSPoPyc-CR8cDDpwEq8d3eRs9MH5ntdbj9eXg55pEbNnP16VWW3tSL-Bd9pW3KDj0Sc4UAor62PFPJG1fnuVmEmwECGLCVFcatelWqecKJN4R2B_ZYDbTnq8BHbjGXhlk9H9Ld47ezYkPYKp6io9hJkeOUh7IqwGv_-LLH19njH3mYnLQR2jqmicdZzBk9Us6OQ1ie31MEP5QdMIQxKmAYrBq2f6G_s8su8bbjj7LgOkkbtR1AnegoFGc4zoU1stIFrIYLLx3LX9acdRqhKPY8sf-DUlqoUTY-EayBPtiJEkLMjFzXV4nDEjgop_CVSWfvITrRaX96b8p8DPFjkxNLFsHxkM563j9_RfVfEKDzra16f9xqqiWV7_r3k80Dz7oMTpOTE6wQezpgJWcFPi_3wJqNhu2stz_ZyuP3BwhCa_GZ0Bvs_IsqUHKjF680cmCLhtmD5R0cKR2aG7yz0vTdJr41eUyZHnHNxC0z9CDx5BTPfkI8HiPw88A8iXH6unp3Rq4XjMilolMZaSBYNeejLIluHFhLNnmOaB0mXt0r6_hReyS1tVkqYrNkP2-t8Oe3BoA-9j5aBrAwNsIgUGSyxo7slI4WrEM_gH_i1QwatMo5ITD0sONOH11SFt_JtCBfva14vm2K7oLVUXcLbu4DX6ThbrWMnQ9VnmpSG8pp3FT80fMQWbPCZ_OrrQ6swJteSePGHWukNIqJ1F2ESPbPmjdwN2RGmsPJX9cU2uqlGzfksWiRR37cDZN5zROFgVhbZV03f-njx_yHaY7Tyi3GpVbkW5BsI1CPIIecPgxlxdUnkmNyIJRaAve5EFvqORHqcPIDFDGbZk9JbY6Vze8ACEkvxztUYHpvbySlT6coMfCvxXh26tkyD3ABFWpHto0D_UmxdZtJLp_Z3cXc41CMZ5mqWnbcnjmAJc1YyJlaGK1p661TiRnrBnm1O1u-gu12xMW6Upir5UwYNqPizR-kg_O5oTkSijqnng_f9v-PhLImcAH9_ACAc9TuWWrmzugf-JMNWQ3bVnYsQhuXYU86iPd0AXOIqA-FlzmpLHz_SLh997zonZXl_pY7R7hwy2bbAg8JTC3WfOmki30IceFESQcTQmdugNEOEE_hPYgh59OUM8DmYjsavHVj7V2Hc15u7TA_kkRwXDTslxndonJJQfOS1gfxBTqMC4B_LyyNK51bhBBoCz5yomFhileDNRqtmZad2ctRfoQCjbNtzHCLzOhahWRgu_wFr3cBRgIfcwZmxSdnlxYg_QcG4igxQLg9tTeWqCCKC0Hl8htRUn8r4svze_fId7tMRLf8Whk4BPnHp2Uuq0cLaRnEZrnXFd56hBIwvcqyYN1X0gsFji-QL1KmmBJCVeSGGWgSCM80zxF4RQJMEaHkyeb7f-UTeTMdto37MINE61RdgUIEmyCetlNQKCirKb_jtLBDQxt2-cMdiH_aGefEG5KGF2Ud1Kgnx6ufava04kFkzXdl5YULnQbAflPUezel4Di94tUwZtHUvqe_HDHvR22uHYQcVN2CB7GgKLF-Pf2-wW8U1hBIsVuF9u2SKyrXy-8tK1SW1_7heqNg9Siv_RvCh_3BVrmLVP4hrAMg7UvL8I3JydVqylQBoSp18fRS2UIUdFuJOhWmx-1f1dObmTUaIKPnzYTGTrWWu_jj6It5eyT8QtgAOcXxu48_lJAfobpxGkQaFOdaKrdDr9JB6lctgg4mJvXPVKj0dy7MZuVXmo2xRmnxn4OXvCYN5dvf9vpkZT4ChVl4K2dkpwnKciM7bHaJxUMDlyJ07dYleUCnMm8TOycBJA0uWstkAV5oM-dHD9pai6q9VmKQNUA5QzCESFQZeGtkcSWD7b51Vm_vAEcBHntUh0YjB2GMCteIiGIXFSttPkk9-r9x5oVRWUf8yWsQKLoEpGFnbCcyw2QhwkgHw5P9aLqXAlxNUK7DRuD8WkvLyp3TmWIh2TnU9mpttlWo70TBKpHcQ_rr0fs6c6MEFzIgvBI6Fx5R7cMBV7L3FqVUUhOVGMJF8ExAiLLgcyseQhCZOb79ObD3lqqeMb2xr-adSIPFApaM8h9rpthggDza3AGnUODqjCWiRmqSHw9a7wngzPSGLid6uypVdLyMXGe8mnvy3qPyAs5cIaRqRCmQDra2Av1S8z-OQtch8oMUyb5hkQ08XFg62MdoTtbg8FqFfbVV-a2ctNz5ljCFqlQoPmWtOFcF6SwkTFxsYKs45dnqMM50H9W0pb5rIBOoIOcTIVM4MBE5LyNQCZu5ZgXCcrTlAyTX2EfNWdFokuydR_i5_preMxtNlQdmWdyXmz3S2n2kv-EXwbthWdr2mqlM4qleGUAlqsP-NZW1bLMEnFhN6wV-zxr5INI3xzRPqhNrASsM40oolB7yt32b_AoKa91rNGtI7vaZtHr8kftMAWfht7RXa5-LZWIoKsBUchiZnMqPkxksV4SR09LsmuWi0D0FHrYkTnZYUdRcAUnH4kOe_LhjLB6uqcO8dvYPNDU6d8SQ3Vu6_xwg_IUeZ_cD-8IeCsqxNgpoolvlezNvRkrY9StLWwuJO9lOwvMy1V5zWjKm5C937u9dWKFTWCowA85wbyQfwlvrzATdzEnPNcsfM5cL0MeJEEKJIA7o7ANjQYQRDboeu7RXekNFTdMITnX8giEozTxzvrzrpoc6ujOd3rJMSokeUxU2Riy8ZyVyXYOGMNgCTpV1mWFFRjJEuLkGDNB-Ukk1dR-6c542s8e4DNApeQlV-TH-N8loWopXZp59oqhgHmhwcURK6cpAYftkWjFZC3qES1wZxj1yoziDemes8_u8x__8Xol765XvProc6AQysmaAzBBpelWw6HVIIfn1eun829MXuDwrfWbsbPYgGmmcU1YGPOhLXNy3ysZr8nZ5G4u8lKPBhPqTquQH1NvDyL58Btze7VxG_q6WJDasoh-ONcb37LJPy5M16BVuC_HJrRVCngm7X8MfE9U9inS1ig3gM9MEqfklCh9rHoWlYF2Hl3GdXLU6vKOPIsmJxk_ONKismJKXD5QvmGcBqzB-Z0uwemy0Snq-fk-m8EXC_7grJNqo7Wm9SFdSfhvYrHQ8FKTWz7pBWQcStXbGGV88TDdgHxVGKbkvoI9BVXu4KXUlVYWeDSUHuvJ3_BTxT8WccnJTjlvuXtr_hrutDYnCZ3RJD1S2WkVQLNG1QNs98tm6Z9_chEK5EcipYgiE2z_6P5Cp_Iot7L58luQFhTP4nN0TbUlU99So4DTqOX4lss9W5sLzqrJOPUFzi0wtUv_qS93FP42uSNL0BWECJ9-BNPckFx1HRv9cKIl1Xou6NQ30zRWeX8iewGqlDmpTqTRIxKOogrzLm8maWNpVc8AF98ZY_Kj0IuWdLp_kF5c5vlmUfBmD6jsTJq6kCUaFoUcgQ90K_cQIW_gpb8HKn5JKZdL4emJDrjNqh3XGkp9MLbl4Xfz9JYhF_jbot_a541Ueziap74-RSoLLJQgDyE1D511Fwj-_EwkyKg6j9e_SeG2THEFA1NlZYbRJZcW1NL9CnPvozdLtwFY6VftJ0HoqDlx7Ye8zBjaP0m9Zr8YKq-Nyfus2Dq84eGyKwrPn6HL3J55XFKfcRLn6nyk0f1V-2UoQ8oNSNq6jQFiqrr01grqPj3LYVYDP2FwDgPSameQUQNZndjtqzXZw5oS0TqsWPn8xyrRW94GEKbibN50Ewt0XTtFLVaR9gncZZ1SDuaN5T6NXlC021M2sImTp7Rc_LVaw-cAlXMYuEiPyddqgBPD2f1-deGrsQOnWZ3Nk3ix43UtpxXnd-9TIMTpnorhoIy5Z6JwpU2YTsoq6fSX21-4rgEZGH47bBUoSyZFEIm-K-0ndfetIDhhu4AO_ck7d5Z4WoCFiGUVcN0nkiQytpU7GwTnjk0SRcVT0gl0m0HNtt3VcruBOSGoEZGmuoF3vBJoGQ9_qkKUTYhJXweLHRMHepLrcVvOOjKtEQngg7JvdnKpgK3yns8FmqPqADKdKeAq5pDKEGstfaiaF-Lg1&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-anthropic_research_agent">
+            <div class="author-name">🤖 Agent: anthropic_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_580149&quot;,
+        &quot;name&quot;: &quot;transfer_to_agent&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: null
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-google_research_agent">
+            <div class="author-name">🤖 Agent: google_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_658605&quot;,
+        &quot;args&quot;: {
+          &quot;company&quot;: &quot;google&quot;,
+          &quot;query&quot;: &quot;SAIF framework AI Principles Frontier Model Safety Commitments evaluation standards&quot;
+        },
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a1_pbnVzfXbCZR8Z9vmTlWJ81q-SKzwBha9Q_x011pk8Lz-9ohfBZEbzPh88rozhBqLk4Nr9yiPndeYNabuCniggG0AO5Q0IJ1341Ft2J4lsGv3afGmObKdpPPuFPYeZHcJxiYXZQ1A_dlb2sVXgoVt7VaCzy6-KLGEOFG6matGPevSUivJBH8va4-QIXPdesjmNmac8L1nM-iQiOryGerBfnS8NMyzNZ1gIiGrL2-QgihcRmWfaOiIPJB9GCjV7edGCUOqfbA0dTx1gzNEHoLnZq2gExhi5zKi8v094fvD8LTY2PbRleOsAStoh0JH7W2lkliq9FBBRf-H77V-5xOJS2IycEn9UpiiXzdD5HCrvylRf72ct-Xo3cXOfd_VhKqE_2HPVGvC39WZF3A7xFR9t512KFbnu1Qr7MpPzZM9uJAzR9Ec3wb2xl4rf4nvYsZuljSzkdaS-s8y7QyYGXlgdCy8ula_W1V_nv_LYONeobGFzb4Fge3AJsLZXEUuKoz1ibbXr2xX0DvI1O_1duAvoWG86uyoQPGsCMu19FXc4sVXdW6lzHhIdB9XoIKAbU1k85S9uB3lOeru9AAEizVMXqWOQkTKAwkbvsU4V4jC7uvoY9uHuEXDpHXNKlJp1PuYKBGEZ2B0Ut4_QPNFzkRUCjcWzFAGIA_95VQbdnm5G2xl1-kNwTq50ZOpl359dnGUFTF0vibC5lQK6uc6lK5Djo-ijgqQRLg5eY0ctwd_xCjaSYWmlyjlmchxlvfyCKIjAxKg30sRJdGHLpLZPGRpOy1jJtgOO9AZW2OtifdRe7TOvvnPi9Y65ZYPhmGYRtDqdS6IjkgSvI0LhxmA48flDJxTTDqXf_1aIqIbSA951rU_sG9d3jiFEWYTU5ED7EgYYC3Pm-tmk3BOw6_r1kKnt2g5UBr4thKl-SGh1m5EmHGMOOYzDc1Pmv0JSVve9DbkSmFal6YREDw1dEDdWZbvJSMzEhN4-Qg8HnKdR3vQ25SrbSy19tQs7gr4Pf2xsDTy7YZN2rWAsiT6TmfDd6_E0kmDh3dOUa9JMJ1DnCceLIMyJeNHj69_klio9dNSp9hg22QmfDAoZlNcHHCbpveuBvZioS3CyttIXuB3INlUe7pmSISbeiecrsX45lAZ_-mTl2RTC3IkZoS3tKrT6a6hpLD-Z49mtGHopMqJCCCIlZOh9FY8Jt-gmtt6mALwX1Y7JQbTX01cDWpiHK3a1s3EjpC0Id3Qvgc4IUQhDk2_w-VZG_vfLjHi9SoSj8sP5K1QOYBb3jyTwAkR_ZLRh-TQdnNvT5vRrMXFlmuCvuydYQyhc9i1QZDdfjR_SocaYpDhV-_GrBE3CBrEf8-1SEeHEymZtt-D33dPi0evcsQ9ZuDFqGrOPBmrsIYE0FvJi_pCUIUWwNircLJWBvLaEhSCLnDzQKGkpyJbobQFkUPHwKbhnMJwbIDNDFRbCP9bowvtOYNcdaxU-bNeaJ28ofuC7PYIsuKmS0tF479lzBMHcryhM_soqv_GVSKvB0rQVIEIoFxuFLZGvb1m5TMF12xIqAWucgPp1KJkU2Ml3P9Ggji5gJAi-DkAVMPfaE8L44UhuPoCrYfOfX7E4NKQWzbXNCgs04yIIJtFJry7boYwrNxsqiF8780WNB6oIqBv8XlPUUbQ4QQS_qawbQ62AVuzChlHS3l5c8w908X0gEWy4fjt561Xq-dXqlDTCUutlRq6aH307r0Vs6_tDnB8rrIB1WDCVN1SBfKZcUKS9UViZxhbvp4yuY_BHNmlk9bkmlC1hiNYCbCjI_x22qGn6H_WAqhTtens1pub0HJGWoAUmlinLr-uI8QaVG_F7xyyB8iLzhVQCeqMjKh4-v7CZeagm2guokEpYPTGHzR_1wVVuv7rlz7v088VzWc0BnfdNBJ8m5Ar6q51S2PV28PX8dWGaCCkD2Gwi8TSWE12dg1Ji4PhdZEykfPomv0G-CoDnB1I5pqUwb3OBk_9yBr99jrLRsvTwFwGouSoR3TGTf2VsrXyGZKnI_LM60gX9rXWuVH4EjDFLT_hdANsdQbtyQLgEMwPq25zR8PE1HGfz7aWYvAv4B3j_nTROKCaORvR2K-qLrZTNrzZMyF9yHa9hD0Di5D03uLsG6vEjoSo1YtcAOm1wS9VN-3RFwDvWj5aTXSxeKckN0ZZ7i85k-sCvXcWLk70VZkBnIsahmZOYQkLSFAiMbuVc8Q1tJG_FRJAdBLuwMRu6dUF3Er1BYSOJ0LuqJB-ESQK1NU7DNdEHCf9ilDdzdg4NO9bZBm4mzQzcGbM2Jci_6PRdfJZWeHXjGwq5FnP3Gxndmfs9C8mTspBLfSZm-BNx3J55hcyVGKig1dTbSCJwdD9AzTbd1cXZGfLV8_QDNtDZHXPmo2-qMPM8ODwdZyw1FO1xFiOpWZPW4VeV85zipbuWIIb0V1quVM0SE1ribcXEbOLvwnIqF114ISVItOFMzDznhaIFWFjE28cQJum4py-D2SbPX2vtENDXwGpJPaDmEgvN28lBfl4skTgaeHEZfla-KuRJRKOWiycDfei8aFpRNvj_9wUdETr3wkwv803IbH_eZ5H-7yDyla6iDDN1FK9ToNu0nt5kqJyIMT78OWEmcPS9zoxljfFG1e2EogHH4i-VIietZL7zQJQpDBeAVrM90R7JoZ4P-AbkIr4AvHKSCDdUqD_o6THxAe-D1ZlmJfOkf85A95EuKnD76lwq519UXyXQqvaNwKHraaTARhyiLuc0AVplJEVJNO1tAMB4-YbLnt74LC-wT49AmoWx0Uv3kLtjK475VaL9huFMzEQizFzn0Du9IKNaToQKl2FdUpUt_Cq8gBvolvYwlOfAqq12v_g-lNiYhudn2VfFH8lV4_gWHE23Ovs8NFEEvY7na0nU1JL9JHr9f5mBDjQn2NqtNPAq_P225rFrVX4Xi4xmnB1gg7tWagRqn_N03BFN5Y96s3zV1Oyvr1wTdBsNg28aXeF84V2SXjcAQLyv6qNomn2YeZmI5-Pppfw6IT4WMkkRAvSdSP3R8nzPAzp_DGF_cT-F17ottBWNAShH4HkuMmJ2A2-BaYVGm0Ajv-jWwG7CwWWMVOooFROs_mE_1Iq9znb1sS76IHwEeE2LFybZkdhqQHmNNYfy3ba7GcaOgNdK61ZrmnNy2lY-TyUFHvaLPg3SAKiVZH26CbVoqSfChDKIKa6YxWEgde8F1coP-JMaIflJCpNC0m7ahvQTsy3mYCRML-FIhvy8fvBCf5shKSFQ2w3H-IHF5IBS-zVRE8XopCvkJjrPdeX_7dSlH9OA9_XjhSKUuHPa9uff7WMJ_HZ_Z1xqmTxQWlT09vA-KV2l57y3ZTJ3GYiRVgWbjTWEfhcE4vTDgDdXbCOWuabcnVik3IU8wrA=&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-google_research_agent">
+            <div class="author-name">🤖 Agent: google_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_658605&quot;,
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: &quot;Google / Google DeepMind AI Safety Commitments:\n- Policy Framework: Google AI Principles &amp; Frontier Model Safety Commitments.\n- Risk Categories: Critical capability thresholds covering CBRN, cyber offense, and self-reasoning/persuasion.\n- Deployment Thresholds: Clear safety evaluation gates before training completion and deployment; commitments to pause if mitigations fail.\n- Governance: Responsible AI Council, internal safety review boards, and external alignment advisory groups.\n- Red Teaming: Dedicated Google DeepMind Responsibility &amp; Safety team, SAIF (Secure AI Framework), and extensive external red-teaming.&quot;
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-google_research_agent">
+            <div class="author-name">🤖 Agent: google_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_543389&quot;,
+        &quot;args&quot;: {
+          &quot;agent_name&quot;: &quot;openai_research_agent&quot;
+        },
+        &quot;name&quot;: &quot;transfer_to_agent&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a1_F31nsXNMZ-E5xxOCxrRqX38vej3RKBFPbuyKxKljp13MGejFeEjrIzu9A7f4CzvKjdQwNk_k3sGLzDCOepwkCGpE3BWyq81VxEeeRpmpCOje1c_Wow0Avvx-as5VGiNfFPBDt7__5a4CouWZMnQ32QYgeFkbPmJBpEkaW3rA_H9U6uavWKaUgOgNtHgZAr2-IuEAI8_Q-L5W4j-COalDyeNiYIqprZUNBoGbxHSAH_GEmIPU0IzFN0oAxViFZTri4y-v9FreMNo71UNJmA5G_vCmBruG9pLx2OOMO2TGjky2RGcNO-O0snnzYACf-TZ4AcJ-LrbwEyHkdoNUW62vUNnD0lC3waxWQned951TBIjQMIu_tm_OXzsosy8fwbckanwtLz8GnSnfCp20miecJmUtM6hqYDVaz2Cj0SJEx9_dIDKZbokbwlXDa9EkdRfQ5dOT_cT-XfSOPtCu15X9NRx70-qvCdwySH1UKqqvyNajTuQ8NXOohpwu1UyyGCKeQInSw5S3ZVQfEhEGqhSTi1yJlJpL_E3YuYJ9fj9lM1nsFB99xA3nr7CI1QhaXtVlK0sdMNqEbTkJSN5Pk6oAHf7DX6xu7fXJ1SrLLuzCYJkS-GsfOrECb1JPjwmW8cfBKWx1PFdukHeDEbL-adFSVDwFxsnGeapFZ-9rJr3Eler-Mi5rPkggIYLk2SNO5BK4hsQ1X1G1p4vHMdcY82JboBnv9fjDj5VbgguJiZ7s2InFQ7jq1_NfpldSywVs30JBMEObD-4RLDdDBuUDMxmeE2Jk4DPnQDMuCBbRtaq1uijPq617-GFaU6k4crfgvb7kT2zum0nFQ2qBDvEVNElftzOzS65S0GleaYehVH50t3rBHqXYCqVuQsPwGEnAAkJbbwD4se1p23yDmza-SWTtPPhIcFk3ys3DnvnNCRjKHVQqVQWuopXVUQd9DacidZKnCgoDgR_G_aJv367Gog2NGUntD8B_WdeqI654ZArlf8jjotRJvL9hNmqwVFrqGRMraxCZqjKF8Gvk-WwGLf2j2s9BUrM8_bk8sS7_fU9-aoNNe3_duYkcxhPuq8u7Ti1fj0b743OGyuYu4PC7be3PP6_GId06D4AD6k6-QmfxlskmEVAea1_UWOtkSPa6H0UzWoC7D9UjNaForDn6jxCE2Qn_S3JDWAspqtKCijnRZYZqBhesOP7jdXnSINBHh1S0clkLqWP0kiEjqKYspygPjmAW96RW8mtczN2tMIvRrEn0PyWREPXPbjjxkBE7Pb-D3SsjU-56SqxI-uJ6RFKsr8af2hObIvA==&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-google_research_agent">
+            <div class="author-name">🤖 Agent: google_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_543389&quot;,
+        &quot;name&quot;: &quot;transfer_to_agent&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: null
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-openai_research_agent">
+            <div class="author-name">🤖 Agent: openai_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_336428&quot;,
+        &quot;args&quot;: {
+          &quot;company&quot;: &quot;openai&quot;,
+          &quot;query&quot;: &quot;Preparedness Framework risk scorecards CBRN Cyber Persuasion deployment thresholds governance&quot;
+        },
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a1-NkSsLl0OKOKxhfLEu3Osx_J0CkHKhys_ejGPv1pyTZ2I9n8NEfj47iy6grq-9V3GV_na06koJgGeDnIqoBufE2c7k7JEbHFusZzCyrQgZe5M0c--agPZQjz2LZluvWHU6G3vVsCLkhmPqZM0z0s3caAus0z7Qlpv0bKx_2tGOyjCbDbMBWATQWekXx5OTZuyStMVsT7ljLDMzyhn7_rYRIgrxEc6jKbIqf-RESzrqX5UO9DlpKwsjrsEYxFLuAtJTmJWdVLbvAMtoYqHpgeaNPLWJYhwxVbGB6oVpSbrnvUqzMs795ch3RvbV023mr9fd0cQtD_RVe0IpK2vORaOwfwY-H2ZgrP0org76Gf6GpHyGDiHlpu0ujzxcVzUgLVaxHm_4xRK3m2EjyBt6rjYbufuSa4DiKsoXn0uHkk6V3QYydstZIYGvuvuy8NndJFlpu5PSVUDIkTu00E8li5-h59GrCH_htjHMwGrsoKC3johQy_GFC5CZ8tomUhCF-iqYH5iq0xSfr0oEkCu-G3lXqjmYoOeKgdiL9VfN8l1XzlwhHaAW9Jrl9c2ixE6gQ4M1_016fGKMr6nzBqbdlzzpIJFsXRQHu9GEdrmLzYMWDDF7SaXSONJXQ7b8YIQv7ys2Eg_8r_WRgfspCjOfQ9CwiOypd-EF4WXMlstnym6-xAvieW9U3uxUkAZRhBo2zeNvl2If-am5JphOKS3Sd0u_wkJkqm2mJFdKcWCSCxoawSm_TVKlOAz7M0vBT8Lz7AunmMiqFLgWLXF3aBXujmevYrKMJPA0yorZyxx5OmxobmHXuKMmuXRE09EjEwCvUmTR8QO-zSw2HlPRf82fg4SvoN1PV1mJz9XADlNcBQNdfo05kGObSauTwEoqZvvqKkiiQoiiV7JXjIJsL1jxqCOCQMyNOYbTfqcZ6FYCLd7q0Wdb2EGozqllpLOxVXCPboDocpkQGpf5G-Xb1CPctt5VtiI-yGMBKvUuHJdfX7sGlaqoQOFMZ2Q4TtJ7cIf0eORgcbTxFZLxZKKkLU9xqZ3pfB-9T6abcNY5vLjIDbgZ7NgtBYh2nSj2FsJy_3P7sQhHq3Mqes8VJYMqs0uqw58HvItCrp4PRTEMkBEmmhwsuP4M1ErotVVmEz5uCzGSdtAYE4Bk8FwVW_W5ie1IqXXnqpQodtdzEVqGxouwIVhdDrnfAPNRtDQJwf3cdGo5np3qiB14FjO_uRh2m2COIGUrajzy0v4WDUNbUTrpkHlsC-_6yx4MdNCNfbI3ulrqfa28Ir4M6fP_tz62x_H5gLXSDIpzGKVJjCnzvPQByWYGYWL5LQeN4FyS36WAxRRmdQ9IClM7v322Vu2mX715cmtpwRfHRreqoDndg-QMN747wbM1ljctexU1-raReTgaavbWA6UI7642C6dOhzVcRqqFnz1wWfHYhgmTQR4R3cWzAeowEVa7vOa7BAa8tS2lO4i6BLbdyaYyVwq-xgbIu-tseQ8zLcj5WaIzqPCl7d8WWk-HzbnllYnx-FW6WOfP1_8O1WMFjjLumr3Yko8xeIo5F4QMmyT7Pr5hz0xQK004Pc8ZJPtqvHbS-PzM1enKcaRyBxb8qPWm3-wQ2FMFLnbmUpVOV6xyB3hiWG3vjb7M623oaSjelNKuMVOMganxZ4gEQqrrTIHopV9KjEpOIOJFZEACiBXHM-lubjCqBZVwsEId6Strl9zUA3GRjyXcWGwHfFjEVymsNDlaicSHbMI1ZefDNXMzo8YAB3XZPzmA18UVRf4D0YaJ2xjy7wf82wXmyKoeWjwuYosavWWBWT_TGH_klFjedlyWZw-Hg0jAFLXz-4RAK02wcptibeWzxgmIcaMs4Rr_Uto1x_vuUZAFkOE77zno1T0S7mCBhkGqmim9Rx4WEQ4wKNWGCCxTJT4M7l6DvWrkGWP5y2rBcFCt5swFEpPa0veq3aw5wFqV2CSk3saQk87-U8mpYGVn3U4zGYulxb5dGu324FHfObhGEcyTdLs1KwPhIFm9mqY15ke7kI9zOXD3z7-xqVv_26WzJVmBllmlNUuHwDo=&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-openai_research_agent">
+            <div class="author-name">🤖 Agent: openai_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_336428&quot;,
+        &quot;name&quot;: &quot;search_ai_safety_policy&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: &quot;OpenAI AI Safety Commitments:\n- Policy Framework: Preparedness Framework &amp; Model Spec.\n- Risk Categories: Tracked across 4 areas: Cybersecurity, CBRN, Persuasion, and Autonomous Replication (rated Low, Medium, High, Critical).\n- Deployment Thresholds: Only models with &#x27;High&#x27; post-mitigation risk or lower can be deployed; &#x27;Critical&#x27; models pause development.\n- Governance: Safety and Security Committee with board-level oversight and technical safety sub-teams.\n- Red Teaming: External Red Teaming Network and pre-deployment safety evaluations.&quot;
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-openai_research_agent">
+            <div class="author-name">🤖 Agent: openai_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionCall&quot;: {
+        &quot;id&quot;: &quot;call_26335&quot;,
+        &quot;args&quot;: {
+          &quot;agent_name&quot;: &quot;synthesis_agent&quot;
+        },
+        &quot;name&quot;: &quot;transfer_to_agent&quot;
+      },
+      &quot;thoughtSignature&quot;: &quot;AY89a19hq16EhCV6WcfrUWgm3uy9BruZPQEgvWboHEF3m5xxWBPuMdHolwrmQNW3TpWfzdlSOVvUf6KKlHGqHKbuK1b6TFBRr4jQmVuqj59nEF3nrvEEqx-BZmf85cF6vGY7jX1UZuJOa7qsPBgMWP4wRiS-__cSQ_Vw90FZaodo7LW_xG-4a7bWKD8uxbaryYMPlMJ6MjDhMZDnJ2KRBE5wt-9RiR01DuJXGsoPHCxF1uCC39-60YA9xMO4a_ft6GtbcHOMhBItIQ4OzwmBQMHHakXZc5EWetdlInP0xl6gUjKZG0ftEeBlZQPP8LIQ4xjCvWGAWsEcxgFi7Z1qFJQStGn5w43mOvQ2DIzeu4EpkPUt4lo-TSJ47cUHd04gNGe8eUjTiL4pfq5RLj5mhYG9876xxLF47E7HmjGmZOuCjyrxUNF2w_pWuFS3O1u3xRgau5x8BjGr36mLvH0kHZ0jesDbXOC-upQBaviiGktieHJvqQ54EZcPSP9XR-efAVGSSjoPNvAQ8nEhdYpxd7w9bDDmLLJaNqxuzzyDEftvQXYtsh6ob6uhBG4gumokyQNmcTBzdIl6WFSMmkHGFojbbX8fupYyXaSTySWDyxb51S_uU_ukpA29w_DBfxPrEVWViAMN6S9d5Zg4W1amtToav0Jbs6xL5Wph8geGtFEgtm8O4udZmUEMnEwRu5QsoSiIXQcBE0OI_exss4r07_4btnYisY7bTozI6vWUq0cMdOfkwoiqB-ftSN5nSlQ26sgGlW9YzjNrlfk=&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-openai_research_agent">
+            <div class="author-name">🤖 Agent: openai_research_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;functionResponse&quot;: {
+        &quot;id&quot;: &quot;call_26335&quot;,
+        &quot;name&quot;: &quot;transfer_to_agent&quot;,
+        &quot;response&quot;: {
+          &quot;result&quot;: null
+        }
+      }
+    }
+  ],
+  &quot;role&quot;: &quot;user&quot;
+}</code></pre>
+        </div>
+    
+        <div class="event-card author-synthesis_agent">
+            <div class="author-name">🤖 Agent: synthesis_agent</div>
+            <pre><code>{
+  &quot;parts&quot;: [
+    {
+      &quot;text&quot;: &quot;# Comprehensive Comparative Analysis: AI Safety Commitments &amp; Governance\n\nThis comparative analysis evaluates the AI safety policies, governance structures, risk evaluation frameworks, and red-teaming commitments across **Anthropic**, **Google / Google DeepMind**, and **OpenAI**.\n\n---\n\n## 1. Comparative Analysis Matrix\n\n| Dimension | **Anthropic** | **Google / Google DeepMind** | **OpenAI** |\n| :--- | :--- | :--- | :--- |\n| **Primary Policy Framework** | **Responsible Scaling Policy (RSP)** | **Google AI Principles &amp; Frontier Model Safety Commitments** | **Preparedness Framework &amp; Model Spec** |\n| **Risk Categorization &amp; Rating Scale** | **AI Safety Levels (ASL-1 to ASL-4)** mapped to biosafety/chem, cyber, and autonomous replication. | **Critical Capability Thresholds** covering CBRN, cyber offense, and self-reasoning/persuasion. | **4 Risk Domains** (Cyber, CBRN, Persuasion, Autonomous Replication) rated **Low, Medium, High, Critical**. |\n| **Pause / Stop Triggers** | Halts scaling or deployment if ASL-3/ASL-4 risk triggers are met without required safeguards implemented. | Safety evaluation gates prior to training completion/deployment; commits to pausing if mitigations fail. | Deployment blocked if post-mitigation risk exceeds **High**; model development/training paused if **Critical** risk reached. |\n| **Governance &amp; Board Oversight** | Dual governance: Internal teams + **Long-Term Benefit Trust** (external body with governance authority). | **Responsible AI Council**, internal safety review boards, and external alignment advisory groups. | **Safety and Security Committee** with direct OpenAI Board oversight and technical safety sub-teams. |\n| **Red-Teaming &amp; Independent Auditing** | Third-party auditing prior to deployment, combined with Constitutional AI automated alignment. | Dedicated **Responsibility &amp; Safety team**, Secure AI Framework (SAIF), and extensive external red-teaming. | **External Red Teaming Network** and mandatory pre-deployment safety scorecards. |\n\n---\n\n## 2. Detailed Dimension Breakdown\n\n### 1. Risk Categorization &amp; Thresholds\n\n* **Anthropic (Responsible Scaling Policy - RSP):**\n  * Uses an **AI Safety Level (ASL)** framework modeled after biosafety lab standards (ASL-1 through ASL-4).\n  * **Focus Areas:** CBRN (Chemical, Biological, Radiological, Nuclear) risk escalation, cyber offense capability, and autonomous self-replication.\n  * **Threshold Mechanism:** Explicit technical definitions for each ASL tier dictate precise deployment and containment prerequisites.\n\n* **Google / Google DeepMind (Frontier Model Safety Commitments):**\n  * Utilizes **Critical Capability Thresholds** designed to detect step-function increases in risks.\n  * **Focus Areas:** CBRN threats, advanced offensive cyber operations, persuasion, and self-reasoning capability expansion.\n  * **Threshold Mechanism:** Continuous evaluation across training lifecycle to ensure model capabilities do not breach critical bounds without corresponding security layers (SAIF).\n\n* **OpenAI (Preparedness Framework):**\n  * Categorizes safety risk across **4 defined domains**: Cybersecurity, CBRN, Persuasion, and Autonomous Replication.\n  * **Rating Scale:** Each domain is tracked on a 4-tier risk scale: **Low**, **Medium**, **High**, and **Critical**.\n  * **Threshold Mechanism:** Evaluates pre-mitigation and post-mitigation risk scorecards before advancing model deployment phases.\n\n---\n\n### 2. Pause/Stop Triggers\n\n* **Anthropic:**\n  * **Commitment:** Explicit commitment to **halt model scaling and deployment** if a model reaches ASL-3 or ASL-4 risk thresholds unless strict, pre-defined safety measures and containment protocols are proven effective.\n\n* **Google / Google DeepMind:**\n  * **Commitment:** Enforces strict **safety evaluation gates** prior to training completion and model launch. Commits to **pausing training or deployment** if evaluation thresholds are exceeded and effective mitigations cannot be verified.\n\n* **OpenAI:**\n  * **Commitment:** Enforces a hard cap on deployment\u2014only models rated **High** or below post-mitigation can be deployed. If a model reaches a **Critical** risk level (even pre-mitigation), OpenAI commits to **pausing further development and training** until risk is remediated.\n\n---\n\n### 3. Governance &amp; Board Oversight\n\n* **Anthropic:**\n  * **Structure:** Features a hybrid corporate structure including the **Long-Term Benefit Trust**, an independent external body with legal authority to oversee the company&#x27;s commitment to public benefit and safety alongside the corporate board.\n\n* **Google / Google DeepMind:**\n  * **Structure:** Multi-layered governance anchored by the internal **Responsible AI Council**, specialized internal safety review boards, and consultations with external alignment advisory groups and academic partners.\n\n* **OpenAI:**\n  * **Structure:** Overscen by the **Safety and Security Committee**, a dedicated board-level committee responsible for making key oversight recommendations on safety protocols, supported by technical safety sub-teams.\n\n---\n\n### 4. Red-Teaming &amp; Independent Auditing\n\n* **Anthropic:**\n  * Mandates **third-party independent audits** and red-teaming evaluations prior to releasing new frontier models. Complements external auditing with internal automated alignment techniques (Constitutional AI).\n\n* **Google / Google DeepMind:**\n  * Leverages a dedicated **Responsibility &amp; Safety team**, implements the **Secure AI Framework (SAIF)** for infrastructure security, and conducts extensive pre-deployment red-teaming with independent third-party experts.\n\n* **OpenAI:**\n  * Operates a formal **External Red Teaming Network** comprising domain experts in cyber offense, biosecurity, and behavioral science to stress-test models before release.\n\n---\n\n## 3. Key Strategic Synthesis\n\n1. **Convergence on Core Risk Domains:** All three organizations align on the key frontier risk domains: **CBRN weapons augmentation**, **offensive cyber capabilities**, and **autonomous self-replication/persuasion**.\n2. **Framework Standardization:** While nomenclature differs (ASL vs. Risk Levels vs. Threshold Gates), all three providers have moved toward quantitative scorecards and pre-determined \&quot;hard stop\&quot; triggers.\n3. **Governance Differentiation:** Anthropic emphasizes binding external governance (Long-Term Benefit Trust), OpenAI utilizes board-level committee structures (Safety &amp; Security Committee), and Google integrates institutional frameworks (Responsible AI Council &amp; SAIF).&quot;,
+      &quot;thoughtSignature&quot;: &quot;AY89a1-gz5xOyZH6XGcdDTufqyBv0dP4jE8N4w2iHWKIlPUvBn_HWzHBj2lqyN3kxI7-IgGaGp2CoObjnQQymfm8yqU8EuGUi7VoFLrpYF1_6lvhD9w9dVzHGIZ70o2YYPzNw1W2Wtd_zsEa6W8hmbAxYGqxearrmLfnKQHY-Etu3gBwV_JtGGg6zFt_aXDIrwHnhEWaAy2uYcKq9d-5BzrJ95Lan3jeI6qv9mB7TdKjrWgKdpedZ8hBTTEnC57xoCmE1YoGv5HjKsWFU2uREvhZLDAjYR-uVPidGVSOpNrUUq3T_qGrMdGDEvaiwJJLMM9mDYFrJhNDB4IXgDpVHzp27yFHw60y5tYa4Y2QPlgqqdvVdlZwiurZWLPViW-cQ5HzxTwgVe2p2OFSUSRqA7ue1Gc43a9VNdv2ezjADvlPEyJJCqST-snqdj1drdbAIQS3HKXGoDOLwiN-Ag7FebFcTKksNLruJDlEvUioTeCat0GtxX8zbvL18oLeYBpS52q_TRyM_ImH8Fu_3qN8e6RKAHpjTTWdPE_ujoRsKV9EgYt7xutrtoCnADL_I69nA4j-fcjdHiTEVIHoYfsCxAsxB2RHkto4KcoP5gwlDdzaBbAgp4jyFnbke0AHMU9EkU-_PLFPf28qnWgee6Mm52hnxovRsJrYpgoYX9yBaLIFoncPCVYTUs7L0-WX2OpyYLXoqnczJarxEnwukIufI4ZbIs6pBkYa0t9glq6Jp17xaMNrBEVJbAl42-QH-nE5x5S1uSiHtOfiMyI4-OhCHGhK8ZeeUHLaNUclqf3m-qRm9BGmRD59ey2IMFwtlGwD_3TH2MvmENO9Ct2Zxj-ngI5OeVGURSR0P8kRB0-5kg1QFdqLr5brJqwfMrxVzMGgNWq0_SU3CJ_tTGKchqwRbQONCMZiVivhUb0XyPYfTzDkFf_b1WyzY-v94W3fkdyUL0FMQHUtooL3Rdg-XAi4TnSU5Ui04_ieMZimFGrlySmJJQ89I5MX8NudQf1JEiOINbFJlaXSG4EceiBoPZMesroQ2ypkC89rxSCZyEpuxry-rX_ZOH64vVyGRlrkF1OcdJ8fmsEavLjordL2ivtf6HtgZ54WiDG2TxnK2Y-xX1S37oQl0pzgLvXMOvD1EK5SQHBWAjCJz7AaDi3N_SDrxTwQf8CI94UQ5Wn3bD3CZHz8zTInYPl9tGkRqdDfmtYJlCcgGxRLe1_g7A3gq-mDkgoXrdYZF4Uv3Zr7D_KsPIJRArNxPr9CZ5hvYlqNmH5nYsEmF-v31hEgvyfw3ghV8CbUQpJyI_HO4skeV_wIqzj4F-pOU_r-U3qfP0OqmFXaI0x55sRM9tTUtiXvjrH1t0XG_rsnGnZKQ7X4ex_tlyHG6j_-5L3tKF2gbGvt1spjKV-PkAOFLzIridx-K8ksqBBtRmDnAbd6OKMybQMBzglpCFh9BEU3BCrfEN8N6GmR-8s5U5GCU3Np51ruMwTv5srMJCNa2mIAT3CQcWBxGxUqtuK_SUZGRvdwsXHZMJCStigguh8-CR_K-lISKkvNeVJzUv9HlCmSLMRGGG1ewKGndrky9l7yKQdkmgUN1e57tCbrSldIdDq-ospOClozUqpy6UdA73DJdQLW47PcgebFORdRNNs6YiNqnSIbcw8aGcvWGNeSKcgqml8FoTTeWs70UeFFS_cDtjP5wZiic1HxS_eRyYK1cUS0viW7H5J1CaLawkxZZCqlRbrDEh2cxBLfQcLr7YOXeAYN71swcKmM6nVbqHSt_3xKQd_a-CaaCgD8PFWVfcXsCOvvycng-Hltyq30BrXqsXuSi2FO9gfsv6cFciP8XeJFgMj31hPVDt39mZcbdleNHkefFNrAA5uJy-HKMC0na4YFbUcft8nPNuJ8nSiKFNr13mo5kXn0akIxa-JEIEuNPReGGBx_yLCqNZz4NbYJcIVm6_dwoU5uXBfOZpltoPdxYU8dtf66hKJDa5w6XurkLTEAvKo5fqlweajBHuFDOQXmE-Cw_ZbtBDKo7h8qiuyexxy3jCXrHtaWU8zMkuaA-6zCxA5qAc-U0Bdy6O2v1RwRiUeOaioncgI_8oJUlkuN1t-VddqEKjpFzjy6dIc1NXQhjs0fTWF3bS1L1ukqMuRapg7pR0vn4E8eCo613HeAwJzUQvKfHpiwV77FsTI5PGdNhqZ44QrMpsROuUSvpSSgHWPqtKkZz3-wkhy34aW8QW3gUETAIp2K8lSDknjnA285t9DLKH77zyD2sGjNPkogSiK3ap3c0vbJkA7XIRd4f_EUMR77JRjeRzoBS6vcvZRB_yXbYnu9BwswfYmsZbm19kS6LZx486YfkIDq1JEvoCINBm4PXPFBCQGDghEaon6o-98yUWCGxYKVOmGk0Gqd7yBdpzvbIk4b4O6kQjNPgcwQtrwWokhUupOzFB9SOZXkDaTGfgCvKw2a2n1K394ugMK4Kzc8xsiFR8DmhjmdMJ6eMD1YPfbBIFIV1XGypRNdeVuIb2I8z3AqlY3f_0oktfyc5e-3bY8X77m2ddWdHabmNoT9uDfUkMgYS_pqqokyFGKq8iAObhRDpK19-qrE1ZzM01JOHxF2eH8-NeyWMCvuUOu2oY5KHGTNUuV-eLzDX9kZhI96Dx6hsbzXsF-5Y7ynxP7wCp4bLAmjsBrm6PUCvp0mcilEgJu-VuWrMfuranXlvRNuD8w5oJYAkwxzPobfJOGAWMhNU4TY2Y3mGbhQ_Nx4CwEM-c-NF1lYsZlbi1SOxoAS12eGHirpLmrpKQHOH31PtNhUJSGV8jBtSp_y26rTYXEsBfbt1BXiaNV6EkQQo3BXLSX4w-IawueBXxeXtcQMehutqz00LmlI9s1hBqBAKOHY4XgzJNoxIsqBzhLLAh5NHKsERGndw_2427bsPJwqVxvIwsv45ewaufSGpzWWkisOM-wq5TqsPzwrZtuJulwcJFEiXSKc3V7M0BAb43B4zD6gGQQqLnv5-6egmqOPdOO-rOTVWEUFALpwoC7dFsFX0wRyE1iuWOJ7HUsk2ZEdcRm-8E1XlgAHAtdAYCALh4vzTcCRzHkYuy1apsuFmJSjI5cWuk-ZdqRBDSkIh0yNzgO8-fE9EQrjOT0Y6v-UWvCAD1IIX0Rd605VYVGZs3u7fQTNRkM1w-jKySBc_OzUbblZC3uAz5pi-ZcBqNebADCUdDOAdtwTBESC8NLn9dTSzInJ_QZ6p1lb0IkaLB8UsSI8Bni9NLpuIT4U5jE-wsKFJBBtYHOUmepSYLKKLAurGHB_Ia5gsS6O1DY7hJGDw_MnbeQJvfxJp4L1IOXVSoujxxb1049SDOMvzNFsT-4L_SLT7GHOVreH0gdll6likqFR3w7U0FU_qhzvmd-BPPScfjX0_HQsHfjI1q4Sd8og6BA8VPfpXL9huDh4cu4_W6JCDFgjnio076nzTcKzrcVrDohd4UfFSy2-H3FnKno325SLoRd5lYUC5xJpa7SHqKUtanJ5z9gG_V7NhEYaD_6bE6nF8iEjF8qpnmRb0vPSMiIkCktnfJHP9YdQEs5tsblAzVvxq7_jZe4LXdzxHI3E1pXMAXbfAK8CdE7Mfgonom7094mE98BnoYZCW1Cy8Ty0fv7RPCt34i9imqoAxbzek9YphTR_jQFku4JhhHTjY9GR9RN_PIfNuHJCsuyMvrNgBQX9hPALjMMz3Wv2npaTOyM1J0Da3EiI4mLbGnrqyC4C8fvQP78lbeIWPoI1FNkVwoR8PwWME5rgfwSkC7xBlcDecVjd0e2myd0kFtZ8D093Kx2jhIefanPDpaFob3wGhYxhZkp7ToOKeGpNEdloRywlBY7xWO_cIfVfSISGY_vu66fU5t-q4kt0t36f_hifl39M3eaw5UfqXJg2WtkEIYEDuMs7EPI636DHGdR3BE5b1prYvoMcyyieYIEClnJRKZ0KcjKTmoMkMKPvJtNOjL-N3evygA77VKwBUtkZHv1KJugWec9z1qse_7ZjRT15LbYeKr0LCx8snXr91WEPBO0K8I4cEq6c61YrXEDBSi8AfXDQUvP6hzjUcKaoTgihwfdp3S-fK-Azokb3KPpnDC9LMBtpftqlyxcqHyICduxqTOk4zVhXgYiTEDMI6aWEg6oT5dPWRQ8fzxIvvgiKwfogcw==&quot;
+    }
+  ],
+  &quot;role&quot;: &quot;model&quot;
+}</code></pre>
+        </div>
+    
+    </div>
+</body>
+</html>
